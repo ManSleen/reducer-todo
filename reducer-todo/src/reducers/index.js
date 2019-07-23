@@ -1,3 +1,7 @@
+import uuid from "uuidv4";
+
+export const ADD_ITEM = "ADD_ITEM";
+
 export const initialState = {
   todos: [
     {
@@ -10,6 +14,16 @@ export const initialState = {
 
 export const reducer = (state, action) => {
   switch (action.type) {
+    case ADD_ITEM:
+      const newTodo = {
+        item: action.payload,
+        completed: false,
+        id: uuid()
+      };
+      return {
+        ...state,
+        todos: [...state.todos, newTodo]
+      };
     default:
       return state;
   }

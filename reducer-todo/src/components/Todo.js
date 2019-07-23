@@ -2,7 +2,7 @@ import React from "react";
 
 const Todo = ({ todo }) => {
   console.log(todo);
-  return <p>{todo.item}</p>;
+  return <li>{todo.item}</li>;
 };
 
 export default Todo;
