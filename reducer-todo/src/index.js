@@ -2,7 +2,7 @@ import React, { useReducer } from "react";
 import ReactDOM from "react-dom";
 import { Container } from "semantic-ui-react";
 
-import { ADD_ITEM, TOGGLE_ITEM } from "./reducers";
+import { ADD_ITEM, TOGGLE_ITEM, CLEAR_COMPLETED } from "./reducers";
 import TodoList from "./components/TodoList";
 import TodoForm from "./components/TodoForm";
 
@@ -23,11 +23,19 @@ const App = () => {
     console.log("We Toggled!");
   };
 
+  const clearCompleted = () => {
+    dispatch({ type: CLEAR_COMPLETED });
+  };
+
   return (
     <div>
       <Container>
         <h1>Todo List</h1>
-        <TodoList toggleCompleted={toggleCompleted} todos={todos} />
+        <TodoList
+          clearCompleted={clearCompleted}
+          toggleCompleted={toggleCompleted}
+          todos={todos}
+        />
         <TodoForm addTodo={addTodo} />
       </Container>
     </div>

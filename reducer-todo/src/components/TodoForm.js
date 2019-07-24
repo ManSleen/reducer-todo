@@ -55,7 +55,7 @@ const TodoForm = ({ addTodo }) => {
                 className={errors.item ? "invalid_input" : ""}
                 width="4"
               />
-              {errors.item && touched.item ? (
+              {errors.item ? (
                 <p style={{ marginBottom: "20px", color: "red" }}>
                   {errors.item}
                 </p>
