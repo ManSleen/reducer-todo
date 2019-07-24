@@ -20,7 +20,7 @@ const TodoForm = ({ addTodo }) => {
         validationSchema={RegisterSchema}
         onSubmit={(values, { setSubmitting, resetForm }) => {
           setSubmitting(true);
-          console.log(values);
+          console.log(values.item);
           addTodo(values.item);
           resetForm();
         }}

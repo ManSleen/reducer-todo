@@ -1,6 +1,7 @@
 import uuid from "uuidv4";
 
 export const ADD_ITEM = "ADD_ITEM";
+export const TOGGLE_ITEM = "TOGGLE_ITEM";
 
 export const initialState = {
   todos: [
@@ -23,6 +24,19 @@ export const reducer = (state, action) => {
       return {
         ...state,
         todos: [...state.todos, newTodo]
+      };
+    case TOGGLE_ITEM:
+      return {
+        ...state,
+        todos: state.todos.map(todo => {
+          if (action.payload === todo.id) {
+            return {
+              ...todo,
+              completed: !todo.completed
+            };
+          }
+          return todo;
+        })
       };
     default:
       return state;

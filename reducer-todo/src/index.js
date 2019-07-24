@@ -2,11 +2,12 @@ import React, { useReducer } from "react";
 import ReactDOM from "react-dom";
 import { Container } from "semantic-ui-react";
 
-import { ADD_ITEM } from "./reducers";
+import { ADD_ITEM, TOGGLE_ITEM } from "./reducers";
 import TodoList from "./components/TodoList";
 import TodoForm from "./components/TodoForm";
 
 import "semantic-ui-css/semantic.min.css";
+import "./index.css";
 
 import { reducer, initialState } from "./reducers";
 
@@ -17,11 +18,16 @@ const App = () => {
     dispatch({ type: ADD_ITEM, payload: item });
   };
 
+  const toggleCompleted = id => {
+    dispatch({ type: TOGGLE_ITEM, payload: id });
+    console.log("We Toggled!");
+  };
+
   return (
     <div>
       <Container>
         <h1>Todo List</h1>
-        <TodoList todos={todos} />
+        <TodoList toggleCompleted={toggleCompleted} todos={todos} />
         <TodoForm addTodo={addTodo} />
       </Container>
     </div>
