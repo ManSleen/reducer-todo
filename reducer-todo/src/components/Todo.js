@@ -1,14 +1,20 @@
 import React from "react";
+import { Card } from "semantic-ui-react";
 
 const Todo = ({ todo, toggleCompleted }) => {
   console.log(todo);
   return (
-    <li
+    <Card
+      color="green"
+      fluid
       className={todo.completed ? "completed" : ""}
       onClick={() => toggleCompleted(todo.id)}
     >
-      {todo.item}
-    </li>
+      <Card.Content>
+        <Card.Header>{todo.item}</Card.Header>
+        <Card.Meta>Added: {todo.time}</Card.Meta>
+      </Card.Content>
+    </Card>
   );
 };
 

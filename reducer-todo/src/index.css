@@ -3,10 +3,19 @@
 }
 
 .completed {
-  color: rgb(160, 160, 160);
-  text-decoration: line-through;
+  color: rgb(160, 160, 160) !important;
+  text-decoration: line-through !important;
 }
 
 li {
   cursor: pointer;
+}
+
+.cards {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.card {
+  margin: 10px 0 !important;
 }

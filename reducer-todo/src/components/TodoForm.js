@@ -42,8 +42,8 @@ const TodoForm = ({ addTodo }) => {
               }}
               onSubmit={handleSubmit}
             >
-              <Form.Field
-                label="Add Todo Item"
+              <Form.Input
+                width={16}
                 control={Input}
                 value={values.item || ""}
                 type="text"
@@ -53,7 +53,6 @@ const TodoForm = ({ addTodo }) => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 className={errors.item ? "invalid_input" : ""}
-                width="4"
               />
               {errors.item ? (
                 <p style={{ marginBottom: "20px", color: "red" }}>
@@ -61,7 +60,7 @@ const TodoForm = ({ addTodo }) => {
                 </p>
               ) : null}
 
-              <Button type="submit" color="blue">
+              <Button size="big" fluid type="submit" color="blue">
                 Add Todo &rarr;
               </Button>
               {isSubmitting && "Loading!"}

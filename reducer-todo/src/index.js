@@ -1,6 +1,6 @@
-import React, { useReducer } from "react";
+import React, { useState, useReducer, createRef } from "react";
 import ReactDOM from "react-dom";
-import { Container } from "semantic-ui-react";
+import { Container, Grid } from "semantic-ui-react";
 
 import { ADD_ITEM, TOGGLE_ITEM, CLEAR_COMPLETED } from "./reducers";
 import TodoList from "./components/TodoList";
@@ -30,13 +30,28 @@ const App = () => {
   return (
     <div>
       <Container>
-        <h1>Todo List</h1>
-        <TodoList
-          clearCompleted={clearCompleted}
-          toggleCompleted={toggleCompleted}
-          todos={todos}
-        />
-        <TodoForm addTodo={addTodo} />
+        <h1
+          style={{
+            textAlign: "center",
+            fontSize: "3.5rem",
+            marginBottom: "30px"
+          }}
+        >
+          Todo List
+        </h1>
+        <Grid columns={2} divided>
+          <Grid.Column width={4}>
+            <TodoForm addTodo={addTodo} />
+          </Grid.Column>
+
+          <Grid.Column width={12}>
+            <TodoList
+              clearCompleted={clearCompleted}
+              toggleCompleted={toggleCompleted}
+              todos={todos}
+            />
+          </Grid.Column>
+        </Grid>
       </Container>
     </div>
   );

@@ -1,4 +1,5 @@
 import uuid from "uuidv4";
+import moment from "moment";
 
 export const ADD_ITEM = "ADD_ITEM";
 export const TOGGLE_ITEM = "TOGGLE_ITEM";
@@ -9,7 +10,8 @@ export const initialState = {
     {
       item: "Learn about reducers",
       completed: false,
-      id: 3892987589
+      id: 3892987589,
+      time: "July 23rd 2019, 9:00:02 pm"
     }
   ]
 };
@@ -20,7 +22,8 @@ export const reducer = (state, action) => {
       const newTodo = {
         item: action.payload,
         completed: false,
-        id: uuid()
+        id: uuid(),
+        time: moment().fromNow()
       };
       return {
         ...state,
